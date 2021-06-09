@@ -16,7 +16,10 @@
     list-style: none;
     margin-right: 2vw;
 }
-
+.link_url {
+    color: inherit;
+    text-decoration: inherit;
+}
 
 
 .nav_list:hover {
