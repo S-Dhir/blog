@@ -1,0 +1,32 @@
+.nav_list {
+    float: left;
+    transition: transform .30s;
+    background-color: #14250f;
+    color: aquamarine;
+    cursor: pointer;
+    padding-top: 5px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-bottom: 5px;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 28px;
+    text-decoration: none;
+}
+  .menu {
+    list-style: none;
+    margin-right: 2vw;
+}
+
+
+
+.nav_list:hover {
+    background-color: blanchedalmond;
+    color: rgb(50, 82, 72);
+    transform: scale(1.2);
+ }
+ .nav {
+     background-color: #14250f;
+     position: fixed;
+     width: 200%;
+     margin-left: -1vw;
+ }
