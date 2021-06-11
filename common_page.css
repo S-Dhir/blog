@@ -41,7 +41,7 @@ html {
     margin-left: -1vw;
     z-index: 108938;
  }
- .subscribe123 {
+ .subscribeform {
     border: none;
     width: 100%;
     height: 200%;
@@ -53,4 +53,14 @@ html {
 }
 .text {
   font-family: 'Indie Flower', cursive;
+  font-size: 2vw;
+}
+.text_url {
+  color: inherit;
+}
+.text_url:hover {
+  color: #ba8900;
+}
+.text_url:active {
+  color: rgb(192, 179, 104);
 }
