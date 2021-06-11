@@ -35,5 +35,3 @@ function sleep(seconds) {
     } while (currentDate - date < (seconds));
 }
 //waitfunction end
-
-  
