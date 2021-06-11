@@ -35,3 +35,6 @@ function sleep(seconds) {
     } while (currentDate - date < (seconds));
 }
 //waitfunction end
+if (getCookie("MCPopupClosed")=="yes") {
+  setCookie("MCPopupClosed", "yes", 1.3)
+}
