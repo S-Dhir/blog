@@ -1,32 +1,67 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="description" content="a blog for everyone who needs to know about gaming">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Shiven Dhir">
+        
+        
         <title>Shiven's Blog | Home</title>
         <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="common_page.css">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="subscribe.css">
+        
+
+        <!--API start-->
         <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3d91d8d58d1279ac38756519b/2bbb4f5a9a147592a4ce4f5b2.js");</script>
-        <script src="index.js"></script>
+        <!--API end-->
+        
+
+
+        <script>
+            //displays the subscribe form
+            function showform() {
+                document.getElementById("subscribe").style.display="initial";
+            }
+        </script>
     </head>
     <body>
         <div class="nav">
             <ul class="menu">
+                <!--Navbar-->
                 <li class="nav_list"><a href="index.html" class="link_url">Home</a></li>&nbsp;&nbsp;
                 <li class="nav_list">|</li>
-                <li class="nav_list"><a href="basic-computers.html" class="link_url">Basic computers </a></li>
+                <li class="nav_list"><a href="basic_computers.htm" class="link_url">Basic computers </a></li>
                 <li class="nav_list">|</li>
-                <li class="nav_list"><a href="#subscribe" class="link_url">Subscribe </a></li>
+                <li class="nav_list"><a href="#subscribe" class="link_url" onclick="showform()">Subscribe </a></li>
             </ul>
         </div>
-        <br><br><br><br> 
+
+        <br><br><br><br><!--Styling purposes--> 
+        <!--Head-->
         <div class="head">
             <h1>Welcome to my blog!</h1>
         </div>
-        <iframe src="http://eepurl.com/g7GDZ9" class="subscribe" id="subscribe"></iframe>
+        <div class="subadd" id="subadd">
+            <p style="max-width: 3vw;">Consider subscribing?</p>
+            <span id="add_buttons">
+                <button id="Y">Yes</button>
+                <button id="N">No</button>
+                <button id="A">Already subscribed</button>
+            </span>
+        </div>
+        <!--Subscribe form-->
+        <iframe src="http://eepurl.com/g7GDZ9" class="subscribe123" id="subscribe" style="height: 70vw;" ></iframe>
+        <script src="index.js"></script>
+        <script>
+            sleep(30000);
+            document.getElementById("subadd").style.right="-12vw";
+            for (var i=-13; i!=2; i++) {
+                sleep(1000)
+                document.getElementById("subadd").style.right=i+"vw";
+            }
+        </script>
     </body>
 </html>

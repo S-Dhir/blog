@@ -1,3 +1,4 @@
+//cookie library start
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -12,12 +13,27 @@ function getCookie(cname) {
       }
     }
     return "";
-  }
-  function setCookie(cname, cvalue, exdays) {
+}
+function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
+}
+  //cookie library end
+  //math.random help
+  function randommath(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+  //math.random help end
+  //wait function
+function sleep(seconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < (seconds));
+}
+//waitfunction end
 
-
+  
