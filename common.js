@@ -38,7 +38,6 @@ function sleep(seconds) {
 if (getCookie("MCPopupClosed")=="yes") {
   setCookie("MCPopupClosed", "yes", 1.3)
 }
-console.log("Hello, world")
 
 
 //footer scroll up-down function
@@ -48,8 +47,7 @@ var footer = document.getElementById("footer").innerHTML;
 var arrowup = '<i class="material-icons footer_arrow" onclick="scrollrtxce();" id="arrow">keyboard_arrow_up</i>';
 
 function scrollrtxce() {
-    console.log("scroll")
-    if (document.getElementById(theid).innerHTML==footer) { //closes the footer
+    if (document.getElementById(theid).innerHTML==footer) { /*closes the footer*/
         document.getElementById(theid).innerHTML=arrowup;
         document.getElementById(theid).style.backgroundColor="transparent";
     }
@@ -58,3 +56,13 @@ function scrollrtxce() {
         document.getElementById(theid).style.backgroundColor=theidbgcolor;
     }
 }
+if (window.innerWidth > window.innerHeight) {
+  
+  document.getElementById("orientation_pop").style.display="none";
+}
+if (window.innerWidth < window.innerHeight) {
+
+  document.getElementById("orientation_pop").style.display="initial";
+
+}
+

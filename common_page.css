@@ -39,7 +39,7 @@ html {
     position: fixed;
     width: 200%;
     margin-left: -1vw;
-    z-index: 108938;
+    z-index: 8938;
  }
  .subscribeform {
     border: none;
@@ -66,7 +66,7 @@ html {
 }
 .footer {
   background-color: rgb(157, 157, 158);
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   margin-right: 1vw;
@@ -75,5 +75,26 @@ html {
   z-index: 1002929;
   right: 4vw; 
   cursor: pointer; 
-  background-color: bisque;
+  background-color: rgb(190, 159, 120);
+}
+.footer_arrow:hover {
+  background-color: rgb(233, 219, 202);
+}
+.notice_p {
+  position: fixed;
+  top: 50%;
+  left: 35%;
+  right: 35%;
+  text-align: center;
+  z-index: 8939;
+
+}
+.orientation_notice {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(76, 202, 202, 0.582);
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
 }

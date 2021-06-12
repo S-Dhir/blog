@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        var loadstart = performance.now();
+    </script>
     <meta charset="utf-8">
     <meta name="description" content="a blog for everyone who needs to know about gaming">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,10 +11,12 @@
 
     <title>Shiven's Blog | Home</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet"><!--Navbar--><!--|font-family: 'Fredericka the Great', cursive;|-->
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet"><!--footer--><!--|font-family: 'Indie Flower', cursive;|-->
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet"><!--Heading--><!--|font-family: 'Abril Fatface', cursive;|-->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"><!--Popup--><!--|font-family: 'Lobster', cursive;|-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet"><!--posts--><!--font-family: 'Prompt', sans-serif;-->
 
     <link rel="stylesheet" href="basic_computers.css">
     <link rel="stylesheet" href="../../common_page.css">
@@ -34,47 +39,64 @@
     <div class="nav" style="margin-top: -2%;">
         <ul class="menu">
             <!--Navbar-->
-            <li class="nav_list"><a href="index.html" class="link_url">Home</a></li>&nbsp;&nbsp;
+            <li class="nav_list"><a href="../../index.html" class="link_url">Home</a></li>&nbsp;&nbsp;
             <li class="nav_list">|</li>
-            <li class="nav_list"><a href="basic_computers.htm" class="link_url">Basic computers </a></li>
+            <li class="nav_list"><a href="../../posts/basic_computers/basic_computers.htm" class="link_url">Basic computers </a></li>
             <li class="nav_list">|</li>
             <li class="nav_list"><a href="#subscribe" class="link_url" onclick="showform()">Subscribe </a></li>
         </ul>
     </div>
-    <p>We are surrounded by computers. There is at least one in every middle-class house. Except for those who are already buying one. If you are choosing between a computer. Be it desktop or laptop, then this is the right article for you! Or even if you don’t really see the use of a computer. </p>
+    <div class="orientation_notice" id="orientation_pop">
+        <p class="notice_p">This website is best seen with landscape orientation. Please change the orientation and reload for best experience!</p>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <p class="post">We are surrounded by computers. There is at least one in every middle-class house. Except for those who are already buying one. If you are choosing between a computer. Be it desktop or laptop, then this is the right article for you! Or even if you don’t really see the use of a computer. </p>
     <h2>What is a computer?</h2>
-    <p>A computer is a machine. It mainly does calculations. It consists of a few parts that might seem complicated at start but you’ll learn it in a few days if you put in the effort. A computer has many different looks and designs. Here are some of the basic ones: </p>
+    <p class="post">A computer is a machine. It mainly does calculations. It consists of a few parts that might seem complicated at start but you’ll learn it in a few days if you put in the effort. A computer has many different looks and designs. Here are some of the basic ones: </p>
     <img src="images/mobile.jpg" alt="mobile" class="blog_images">
-    <p>A mobile phone (Yes this is also a computer. Over the years people have called laptops and desktops computers forgetting that mobile phones are also computers.)</p>
+    <p class="post">A mobile phone (Yes this is also a computer. Over the years people have called laptops and desktops computers forgetting that mobile phones are also computers.)</p>
     <img src="images/Laptop.png" alt="laptop" class="blog_images">
-    <p>Laptops</p>
+    <p class="post">Laptops</p>
     <img src="images/desktop.png" alt="desktop" class="blog_images">
-    <p>Desktop</p>
+    <p class="post">Desktop</p>
     <img src="images/servers.png" alt="servers" class="blog_images">
-    <p>Servers</p> <br>
+    <p class="post">Servers</p> <br>
     <h2>So, what do they do?</h2>
-    <p>
+    <p class="post">
         Oh, what these computers? Well, their main purpose is to do calculations faster than a human can. But, some people have taken this to the next level. Now they not only do a bunch of multiplication sums but, they are useful for making video games, video editing, animation, typing. Pretty much anything. You ever seen those kids stuck on to gadgets all day? That’s because these computers can do so much advanced calculations that they can show awesome stuff. Like games. 
     </p>
     <h2>Tell me more about these</h2>
-    <p>
+    <p class="post">
         Sure! Here’s a few basic facts,
         <br>
-        You would want to note that all computers are not as powerful as each other. For example, mobile phones can do less when compared to a server. A server may be able to do what 100 mobile phones can’t do! This means that say, you want a device that will be able to manage all the Whatsapp messages on earth. This means that it receives all messages that someone sends and then forwards it to the people who should receive the message. So let’s say person A sends a message to person B. What the device A will do is send you information like, the message, the name of the person and that this message is to be delivered to person B. If this is a mobile phone that is doing this then, one message it will be able to send. It will receive, run a programme, which will forward the message almost instantly after receiving. But imagine if 2 Billion messages were sent to this mobile at the same time. All are being sent to different people, all have different messages, and some even have files with them. A very powerful computer will be needed to handle so much. Or else, if you use your mobile for this, then the phone will shut down due to heavy load. Or worse could happen. With the heat that will be generated, the phone could burn. Below, I have listed some pointers specific to every computer that I have mentioned.
-    </p>
-    <br><br><br>
+        You would want to note that all computers are not as powerful as each other. For example, mobile phones can do less when compared to a server. A server may be able to do what 100 mobile phones can’t do! This means that say, you want a device that will be able to manage all the Whatsapp messages on earth. This means that it receives all messages that someone sends and then forwards it to the people who should receive the message. So let’s say person A sends a message to person B. What the device A will do is send you information like, the message, the name of the person and that this message is to be delivered to person B. If this is a mobile phone that is doing this then, one message it will be able to send. It will receive, run a programme, which will forward the message almost instantly after receiving. But imagine if 2 Billion messages were sent to this mobile at the same time. All are being sent to different people, all have different messages, and some even have files with them. A very powerful computer will be needed to handle so much. Or else, if you use your mobile for this, then the phone will shut down due to heavy load. Or worse could happen. With the heat that will be generated, the phone could burn. Below, I have listed some pointers specific to every computer that I have mentioned. <br>
+        <p class="post" style="font-size: 1.5vw;">•	Mobile phones</p>
+        <p style="margin-left: 4vw;" class="post">These computers are the most used and bought ones. Mostly because they are small enough to fit into people’s pockets. These computers have the least computing power when compared to the other ones in this blog. Their size and lack of performance makes them the cheapest too! Nevertheless, these computers are powerful enough for the average person to call, text or even watch movies and play low weight games.</p>
+        <p class="post" style="font-size: 1.5vw;">•	Laptops and Desktops</p>
+        <p style="margin-left: 4vw;" class="post">I am talking about these two devices together because they are pretty same. They can have the same power but generally, desktops have more power. Laptops maybe less powerful but they are portable. They can easily fit in a bag and be put on your lap. It is although possible that when 2 brand new laptops and desktops are compared, both with the same computing power, the laptop is more costly. This is since you, yes, I mean you, can make a desktop. You can bring all the parts and assemble it. But a laptop is always branded. If you want portability (Which most people do (which makes it more in demand leading to higher price)) then you have to go for a laptop. But if you want a cheaper, easily cooled, can be upgraded and a more powerful thing then go for a desktop.</p>
+        <p class="post" style="font-size: 1.5vw;">•	Servers</p>
+        <p style="margin-left: 4vw;" class="post">The above computers are easily available (Maybe not in COVID-19 (Which is when this article was written)). But a server, you will not find anyone selling a server in a mall. Have you ever heard that earlier computers were the size of a room? It can be as huge as an Office building or even as small as a room like the first ones but, they are so much more powerful than the first ones. And I mean generally. The first ones were probably less powerful than mobile phones but, some servers are faster and smarter than Vril Dox <sup>(according to google, the smartest superhero!)</sup></p>
+    </p></p>
+    <br><br><br><br><br><br><br>
     
     <iframe src="http://eepurl.com/g7GDZ9" class="subscribeform" id="subscribe" style="height: 70vw;" ></iframe>
 
-    <div class="footer" style="position: fixed;" id="footer">    
+    <div class="footer" id="footer">
         <p class="text">
-            <a href="basic_computers.htm" class="text_url" style="text-decoration: underline;">Check out my latest post</a>
+            <a href="posts/basic_computers/basic_computers.htm" class="text_url" style="text-decoration: underline;">Check out my latest post</a>
             <a href="https://github.com/S-Dhir/blog" class="text_url" style="text-decoration: underline;">See the source code on github</a>
             <a href="about.html" class="text_url" style="text-decoration: underline;">About me</a>
+            <a href="#" class="text_url" style="text-decoration: underline;">Back to top</a>
             <i class="material-icons footer_arrow" onclick="scrollrtxce();" id="arrow">keyboard_arrow_down</i>
         </p>   
+    
+    </div>
 
     </div>
     <script src="../../common.js"></script>
+    <script>
+        var loadend=performance.now();
+        console.log("loading time is "+(Math.round(loadend-loadstart))+" milliseconds")
+    </script>
 </body>
 </html>
