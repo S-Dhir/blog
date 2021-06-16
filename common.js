@@ -65,4 +65,3 @@ if (window.innerWidth < window.innerHeight) {
   document.getElementById("orientation_pop").style.display="initial";
 
 }
-
