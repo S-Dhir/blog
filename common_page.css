@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    margin-right: 2%;
 }
 .nav_list {
     float: left;
@@ -97,4 +98,7 @@ html {
   z-index: 9999;
   left: 0;
   top: 0;
+}
+.content_url {
+  color: rgb(87, 201, 209);
 }
