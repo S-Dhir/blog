@@ -27,19 +27,6 @@ function setCookie(cname, cvalue, exdays) {
 }
   //math.random help end
   //wait function
-function sleep(seconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < (seconds));
-}
-//waitfunction end
-if (getCookie("MCPopupClosed")=="yes") {
-  setCookie("MCPopupClosed", "yes", 1.3)
-}
-
-
 //footer scroll up-down function
 var theid = "footer";
 var theidbgcolor=document.getElementById(theid).style.backgroundColor;
@@ -56,12 +43,15 @@ function scrollrtxce() {
         document.getElementById(theid).style.backgroundColor=theidbgcolor;
     }
 }
-if (window.innerWidth > window.innerHeight) {
-  
-  document.getElementById("orientation_pop").style.display="none";
+function popupclose() {
+  document.getElementById("popup").style.display="none";
+  document.getElementById("popup2").style.display="none";
+  setCookie("popup", "closed", 1.2);
 }
-if (window.innerWidth < window.innerHeight) {
-
-  document.getElementById("orientation_pop").style.display="initial";
-
+if (getCookie("popup")=="closed") {
+  console.log(null);
+}
+function showform() {
+  document.getElementById("popup").style.display="initial";
+  document.getElementById("popup2").style.display="initial"; 
 }

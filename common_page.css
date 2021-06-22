@@ -42,16 +42,6 @@ html {
     margin-left: -1vw;
     z-index: 8938;
  }
- .subscribeform {
-    border: none;
-    width: 100%;
-    height: 200%;
-    display: none;
-}
-.subadd {
-  position: fixed;
-  right: -293949289929492904029vw;
-}
 .text {
   font-family: 'Indie Flower', cursive;
   font-size: 2vw;
@@ -81,24 +71,72 @@ html {
 .footer_arrow:hover {
   background-color: rgb(233, 219, 202);
 }
-.notice_p {
-  position: fixed;
-  top: 50%;
-  left: 35%;
-  right: 35%;
-  text-align: center;
-  z-index: 8939;
 
-}
-.orientation_notice {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(76, 202, 202, 0.582);
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-}
 .content_url {
   color: rgb(87, 201, 209);
+}
+.popup_container {
+  z-index: 1000000000;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: none;
+  background-color: whitesmoke;
+  left: 0;
+  top: 0;
+  display: none;
+}
+.popup {
+  position: fixed;
+  left: 25%;
+  right: 25%;
+  width: 50%;
+  top: 12.5%;
+  transition: transform .30s;
+  background-color: #55d12f
+}
+.popupclose { 
+  color: rgb(240, 136, 9);
+}
+.popupclose:hover {
+  color: rgb(35, 55, 110);
+  cursor: pointer;
+}
+.popup_h3 {
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 2.4vw;
+  color: #131d55;
+}
+.signin_opt:hover {
+  box-shadow: 2px 2px 5px grey;
+}
+.input {
+  margin: auto;
+  width: 75%;
+  display: block;
+  background-color: #14250f;
+  color: aliceblue;
+  font-size: 150%;
+}
+.enter_email {
+  text-align:center; 
+  display: block; 
+  margin: auto; 
+  background-color: black; 
+  color: white; 
+  padding: 0px; 
+  border: none; 
+  font-family: 'Roboto Mono', monospace; 
+  height: 15%; 
+  width: 30%;
+}
+.enter_email:hover {
+  cursor: pointer;
+  box-shadow: 5px 10px 18px #888888;
+}
+.errorMessage {
+  text-align: center;
+  color: #033b3d;
+  font-size: 3vw;
 }

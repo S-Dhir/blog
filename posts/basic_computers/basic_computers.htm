@@ -23,15 +23,7 @@
     <link rel="stylesheet" href="../../common_page.css">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 
-    <!--API start-->
-    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3d91d8d58d1279ac38756519b/2bbb4f5a9a147592a4ce4f5b2.js");</script>
-    <!--API end-->
-
     <script>
-        //displays the subscribe form
-        function showform() {
-            document.getElementById("subscribe").style.display="initial";
-        }
 
     </script>
 
@@ -76,15 +68,34 @@
         <p class="post" style="font-size: 1.5vw;">•	Servers</p>
         <p style="margin-left: 4vw;" class="post">The above computers are easily available (Maybe not in COVID-19 (Which is when this article was written)). But a server, you will not find anyone selling a server in a mall. Have you ever heard that earlier computers were the size of a room? It can be as huge as an Office building or even as small as a room like the first ones but, they are so much more powerful than the first ones. And I mean generally. The first ones were probably less powerful than mobile phones but, some servers are faster and smarter than Vril Dox <sup>(according to google, the smartest superhero!)</sup></p>
     </p></p>
-    <br><br><br><br><br><br><br>
-    
-    <iframe src="http://eepurl.com/g7GDZ9" class="subscribeform" id="subscribe" style="height: 70vw;" ></iframe>
+    <div id="popup" class="popup_container" style="opacity: 0.8; display: none;">
+                
+    </div>
+    <div class="popup_container" style="z-index: 1000000001; background:none; display: none;" id="popup2">
+        <i class="fa fa-window-close popupclose" style="font-size: 3vmax;" onclick="popupclose()"></i>
 
+        <div class="popup">
+            
+        <h2 class="popup_h3">Hey, why don't you consider subscribing?</h2>
+        <p id="error" class="text errorMessage"></p>
+        <img src="/google_logo.png" alt="subscribe with google" class="signin_opt" style="margin: auto; display: block; cursor: pointer; background: none; width: 45%;" onclick="signingoogle()">
+            
+        <h3 style="text-align: center;" class="popup_h3">OR</h3>
+            
+        <input type="text" id="email_holder" placeholder="Enter your email here" onsearch="signinemail(document.getElementById('email_holder').value)" class="input"><br>
+            
+        <button onclick="signinemail(document.getElementById('email_holder').value)" class="enter_email"><i class="material-icons">&#xe0be;</i><div style="font-size: 2vw;">&nbsp;Subscribe with email</div></button>
+            
+                
+        </div>
+
+    </div>
+    <br><br><br><br><br><br><br>
     <div class="footer" id="footer">
         <p class="text">
             <a href="posts/basic_computers/basic_computers.htm" class="text_url" style="text-decoration: underline;">Check out my latest post</a>
             <a href="https://github.com/S-Dhir/blog" class="text_url" style="text-decoration: underline;">See the source code on github</a>
-            <a href="about.html" class="text_url" style="text-decoration: underline;">About me</a>
+            <a href="/about.html" class="text_url" style="text-decoration: underline;">About me</a>
             <a href="#" class="text_url" style="text-decoration: underline;">Back to top</a>
             <i class="material-icons footer_arrow" onclick="scrollrtxce();" id="arrow">keyboard_arrow_down</i>
         </p>   
@@ -92,7 +103,224 @@
     </div>
 
     </div>
-    <script src="../../common.js"></script>
+    <script src="/common.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyCdRFuXHIiuxwCiE3gbTxcPmx5iETiX4xQ",
+            authDomain: "blog-47049.firebaseapp.com",
+            projectId: "blog-47049",
+            storageBucket: "blog-47049.appspot.com",
+            messagingSenderId: "552440753588",
+            appId: "1:552440753588:web:9f8781871e2e6fd454d6e1",
+            measurementId: "G-4J1X0XP8WZ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var perf = firebase.performance();
+        var database = firebase.database();
+        function signingoogle() {
+            let provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithRedirect(provider);
+        }
+        function signinyahoo() {
+            let provider = new firebase.auth.OAuthProvider('yahoo.com');
+            firebase.auth().signInWithRedirect(provider);
+        }
+        function signinmicrosoft() {
+            let provider = new firebase.auth.OAuthProvider('microsoft.com');
+            firebase.auth().signInWithRedirect(provider);
+        }
+        firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    var uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+        function signinemail(email) {
+            var actionCodeSettings = {
+                // URL you want to redirect back to. The domain (www.example.com) for this
+                // URL must be in the authorized domains list in the Firebase Console.
+                url: 'http://127.0.0.1:9999',
+                // This must be true.
+                handleCodeInApp: true,
+                iOS: {
+                    bundleId: 'com.example.ios'
+                },
+                android: {
+                    packageName: 'com.example.android',
+                    installApp: true,
+                    minimumVersion: '12'
+                },
+                dynamicLinkDomain: 'dhir.page.link'
+            };
+            firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+                .then(() => {
+                    // The link was successfully sent. Inform the user.
+                    // Save the email locally so you don't need to ask the user for it again
+                    // if they open the link on the same device.
+                    let cname, cvalue, exdays;
+                    cname="email";
+                    cvalue=email;
+                    exdays=3;
+                    var d = new Date();
+                    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                    var expires = "expires="+ d.toUTCString();
+                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+                    window.localStorage.setItem('emailForSignIn', email);
+                    console.log(email);
+                    // ...
+                })
+                .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log(errorCode);
+                    console.log(errorMessage);
+                    document.getElementById("error").innerHTML=errorMessage;
+
+                    // ...
+                });
+                // Confirm the link is a sign-in with email link.
+                if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+                    // Additional state parameters can also be passed via URL.
+                    // This can be used to continue the user's intended action before triggering
+                    // the sign-in operation.
+                    // Get the email if available. This should be available if the user completes
+                    // the flow on the same device where they started it.
+                    
+                    var email = window.localStorage.getItem('emailForSignIn');
+                    if (firebase.auth().currentUser==null) {
+                        // User opened the link on a different device. To prevent session fixation
+                        // attacks, ask the user to provide the associated email again. For example:
+                        email = window.prompt('Please provide your email for confirmation');
+                    }
+                    // The client SDK will parse the code from the link for you.
+                    firebase.auth().signInWithEmailLink(email, window.location.href)
+                        .then((result) => {
+                        // Clear email from storage.
+                        window.localStorage.removeItem('emailForSignIn');
+                        console.log(firebase.auth().credential);
+                        console.log(firebase.auth().currentUser)
+                        // You can access the new user via result.user
+                        // Additional user info profile not available via:
+                        // result.additionalUserInfo.profile == null
+                        // You can check if the user is new or existing:
+                        // result.additionalUserInfo.isNewUser
+                        })
+                        .catch((error) => {
+                        // Some error occurred, you can inspect the code: error.code
+                        // Common errors could be invalid email and invalid or expired OTPs.
+                        });
+                }   
+                
+        }
+
+        // Confirm the link is a sign-in with email link.
+        if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+        // Additional state parameters can also be passed via URL.
+        // This can be used to continue the user's intended action before triggering
+        // the sign-in operation.
+        // Get the email if available. This should be available if the user completes
+        // the flow on the same device where they started it.
+        var email = window.localStorage.getItem('emailForSignIn');
+        if (!email) {
+            // User opened the link on a different device. To prevent session fixation
+            // attacks, ask the user to provide the associated email again. For example:
+            email = window.prompt('Please provide your email for confirmation');
+        }
+        // The client SDK will parse the code from the link for you.
+        firebase.auth().signInWithEmailLink(email, window.location.href)
+            .then((result) => {
+            // Clear email from storage.
+            window.localStorage.removeItem('emailForSignIn');
+            // You can access the new user via result.user
+            // Additional user info profile not available via:
+            // result.additionalUserInfo.profile == null
+            // You can check if the user is new or existing:
+            // result.additionalUserInfo.isNewUser
+            })
+            .catch((error) => {
+            // Some error occurred, you can inspect the code: error.code
+            // Common errors could be invalid email and invalid or expired OTPs.
+            });
+        }
+        firebase.auth()
+            .getRedirectResult()
+            .then((result) => {
+                if (result.credential) {
+                /** @type {firebase.auth.OAuthCredential} */
+                var credential = result.credential;
+                console.log("credential:"+credential)
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = credential.accessToken;
+                console.log("token:"+token)
+                // ...
+                }
+                // The signed-in user info.
+                var user = result.user;
+                console.log(user.photoURL);
+                sleep(500, function()
+                {
+                    console.log('1');
+                    sleep(500, function()
+                    {
+                        console.log('2');
+                        console.log(firebase.auth().currentUser);
+                        if (firebase.auth().currentUser==null) {
+                            console.log(firebase.auth().currentUser)
+                            document.getElementById("popup").style.display="initial";
+                            document.getElementById("popup2").style.display="initial";
+                        }
+                        else {
+                            console.log(firebase.auth())
+                            document.getElementById("popup").style.display="none";
+                            document.getElementById("popup2").style.display="none"; 
+                        }
+                    })
+                })
+            }).catch((error) => {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+            });
+            function remove() {
+                let user = firebase.auth().currentUser;
+                user.delete().then(() => {
+                console.log("deleted");
+                }).catch((error) => {
+                console.log("error:");
+                console.log(error);
+                });
+            }
+            function sleep(ms, f)
+                {
+                    return(
+                        setTimeout(f, ms)
+                    )
+                }
+            
+
+    </script>
     <script>
         var loadend=performance.now();
         console.log("loading time is "+(Math.round(loadend-loadstart))+" milliseconds")
