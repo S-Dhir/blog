@@ -3,7 +3,7 @@
 }
 .post {
     font-family: 'Prompt', sans-serif;
-    font-size: 2vh;
+    font-size: 2vmax;
     color: rgb(212, 151, 81);
 }
 body {
