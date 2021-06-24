@@ -44,7 +44,7 @@ html {
  }
 .text {
   font-family: 'Indie Flower', cursive;
-  font-size: 3.5vmin;
+  font-size: 3.5vmax;
 }
 .text_url {
   color: inherit;
