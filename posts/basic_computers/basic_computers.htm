@@ -11,13 +11,15 @@
     <meta name="author" content="Shiven Dhir">
 
     <title>All you need to know about Computers | Shiven's blog</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet"><!--Navbar--><!--|font-family: 'Fredericka the Great', cursive;|-->
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet"><!--footer--><!--|font-family: 'Indie Flower', cursive;|-->
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet"><!--Heading--><!--|font-family: 'Abril Fatface', cursive;|-->
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"><!--Popup--><!--|font-family: 'Lobster', cursive;|-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet"><!--posts--><!--font-family: 'Prompt', sans-serif;-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Benne&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="basic_computers.css">
     <link rel="stylesheet" href="../../common_page.css">
@@ -78,7 +80,7 @@
             
         <h2 class="popup_h3">Hey, why don't you consider subscribing?</h2>
         <p id="error" class="text errorMessage"></p>
-        <img src="/google_logo.png" alt="subscribe with google" class="signin_opt" style="margin: auto; display: block; cursor: pointer; background: none; width: 45%;" onclick="signingoogle()">
+        <img src="../../google_logo.png" alt="subscribe with google" class="signin_opt" style="margin: auto; display: block; cursor: pointer; background: none; width: 45%;" onclick="signingoogle()">
             
         <h3 style="text-align: center;" class="popup_h3">OR</h3>
             
@@ -97,13 +99,18 @@
             <a href="https://github.com/S-Dhir/blog" class="text_url" style="text-decoration: underline;">See the source code on github</a>
             <a href="/about.html" class="text_url" style="text-decoration: underline;">About me</a>
             <a href="#" class="text_url" style="text-decoration: underline;">Back to top</a>
-            <i class="material-icons footer_arrow" onclick="scrollrtxce();" id="arrow">keyboard_arrow_down</i>
+            <i class="material-icons footer_arrow" style="left: 40%;" onclick="scrollrtxce();" id="arrow">keyboard_arrow_down</i>
         </p>   
     
     </div>
-
+    <h1 style="text-align: center; color: rgb(108, 219, 210);">Comments</h1>
+    <a onclick="alert('commenting is currently under development. As soon as the development is finished you will be able to comment, till then stay tuned!')" style="text-align: center; font-size: 2vmax; background-color: blanchedalmond;" href="#">How do I comment?</a>
+    <div id="comments">
+        <div>
+        </div>
+        <hr style="width: 100vw;">
     </div>
-    <script src="/common.js"></script>
+    <script src="../../common.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 
@@ -111,6 +118,8 @@
         https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-performance.js"></script>
 
     <script>
         // Your web app's Firebase configuration
@@ -128,7 +137,9 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
         var perf = firebase.performance();
-        var database = firebase.database();
+        var db = firebase.firestore();
+        
+        
         function signingoogle() {
             let provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithRedirect(provider);
@@ -312,13 +323,28 @@
                 console.log(error);
                 });
             }
-            function sleep(ms, f)
-                {
-                    return(
-                        setTimeout(f, ms)
-                    )
+    </script>
+    <script>
+        function month(number){
+            var month= [null,"January","February","March","April","May","June","July",
+            "August","September","October","November","December"];
+            return month[parseInt(number)];
+        }
+        var docRef;
+        for (let iok=1; (iok<3);) {
+            db.collection("basic_computers").doc("C" + iok)
+            .get().then((doc) => {
+                if (doc.exists) {
+                    var recieve=doc.data();
+                    document.getElementById("comments").innerHTML=document.getElementById("comments").innerHTML+'<img src="'+recieve["photo"]+'" style="width: 32px; height: 32px;">&nbsp;'+recieve["name"]+"<p>"+recieve["comment"]+'</p><i class="fa fa-thumbs-o-down"></i>'+recieve["likes"]+'&nbsp;&nbsp;&nbsp;<i class="fa fa-thumbs-o-up"></i>'+recieve["dislikes"]+' Uploaded: '+recieve["time"].charAt(0)+recieve["time"].charAt(1)+':'+recieve["time"].charAt(2)+recieve["time"].charAt(3)+' on '+ month(recieve["date"].charAt(2)+recieve["date"].charAt(3))+' '+recieve["time"].charAt(0)+recieve["time"].charAt(1)+' year '+recieve["date"].charAt(4)+recieve["date"].charAt(5)+recieve["date"].charAt(6)+recieve["date"].charAt(7)+'</div><hr style="width: 100vw;"><div>'
+                } else {
+                    // doc.data() will be undefined in this case
+                    kte=false;
                 }
-            
+            }).catch((error) => {
+            }); 
+            iok=iok+1;
+        }
 
     </script>
     <script>

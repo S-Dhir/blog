@@ -14,3 +14,9 @@ h2 {
     font-family: 'Abril Fatface', cursive;
     color: rgb(143, 172, 106);
 }
+#comments {
+    background-color: azure;
+    font-family: 'Benne', serif;
+    font-size: 2vmax;
+    width: 60%;
+}

@@ -31,7 +31,7 @@ function setCookie(cname, cvalue, exdays) {
 var theid = "footer";
 var theidbgcolor=document.getElementById(theid).style.backgroundColor;
 var footer = document.getElementById("footer").innerHTML;
-var arrowup = '<i class="material-icons footer_arrow" onclick="scrollrtxce();" id="arrow">keyboard_arrow_up</i>';
+var arrowup = '<i class="material-icons footer_arrow" onclick="scrollrtxce();" style="margin-left:40%; left:40%;" id="arrow">keyboard_arrow_up</i>';
 
 function scrollrtxce() {
     if (document.getElementById(theid).innerHTML==footer) { /*closes the footer*/
