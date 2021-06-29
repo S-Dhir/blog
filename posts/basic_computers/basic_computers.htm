@@ -177,7 +177,7 @@
   }
 });
 
-        function signinemail(email.toString()) {
+        function signinemail(email) {
             document.getElementById("error").innerHTML="An email was sent to you with instructions to subscribe";
             var actionCodeSettings = {
                 // URL you want to redirect back to. The domain (www.example.com) for this
@@ -195,7 +195,7 @@
                 },
                 dynamicLinkDomain: 'dhir.page.link'
             };
-            firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+            firebase.auth().sendSignInLinkToEmail(email.toString(), actionCodeSettings)
                 .then(() => {
                     // The link was successfully sent. Inform the user.
                     // Save the email locally so you don't need to ask the user for it again
