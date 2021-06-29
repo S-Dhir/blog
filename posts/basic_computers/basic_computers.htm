@@ -393,10 +393,16 @@
             
             db.collection(currentdoc).get().then((doc) => {
                     console.log(doc.docs.length);
+                if (firebase.auth().currentUser.displayName != null) {
+                    var dispNAME = firebase.auth().currentUser.displayName;
+                }
+                else {
+                    var dispNAME = firebase.auth().currentUser.email;
+                }
                     db.collection(currentdoc).doc('C'+(doc.docs.length+1).toString()).set({
                         "comment":coment,
                         "date":date + month + year,
-                        "name": firebase.auth().currentUser.displayName,
+                        "name": dispNAME,
                         "photo":firebase.auth().currentUser.photoURL,
                         "time":hour+minute
                     })
