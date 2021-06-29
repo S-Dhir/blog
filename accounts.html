@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="9icGUqyId7PWkx-IHMlq7fjP2Bc6TMm4EVHuzrDS4pE" />
+    <script>
+        var loadstart = performance.now();
+    </script>
+    <meta charset="utf-8">
+    <meta name="description" content="a blog for everyone who needs to know about gaming">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Shiven Dhir">
+    <title>Manage account</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <input type="file" id="image upload">
+    <!--Firebase core-->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <!--SDK libraries-->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-performance.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyCdRFuXHIiuxwCiE3gbTxcPmx5iETiX4xQ",
+            authDomain: "blog-47049.firebaseapp.com",
+            databaseURL: "https://blog-47049-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "blog-47049",
+            storageBucket: "blog-47049.appspot.com",
+            messagingSenderId: "552440753588",
+            appId: "1:552440753588:web:9f8781871e2e6fd454d6e1",
+            measurementId: "G-4J1X0XP8WZ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        firebase.analytics();
+    	firebase.auth();
+        firebase.firestore();
+	    firebase.storage();
+	    firebase.performance();
+	    firebase.database();
+
+        //my code
+        // Create a reference with an initial file path and name
+        var storage = firebase.storage();
+        var pathReference = storage.ref('/pfp/monimage.png');
+        console.log(pathReference);
+        firebase.storage().ref('pfp/monimage.png').getDownloadURL()
+            .then((url) => {
+                // `url` is the download URL for 'images/stars.jpg'
+                console.log(url);
+                // This can be downloaded directly:
+                var xhr = new XMLHttpRequest();
+                xhr.responseType = 'blob';
+                xhr.onload = (event) => {
+                var blob = xhr.response;
+                };
+                xhr.open('GET', url);
+                xhr.send();
+
+                // Or inserted into an <img> element
+                var img = document.getElementById('myimg');
+                img.setAttribute('src', url);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    </script>
+</body>
+</html>

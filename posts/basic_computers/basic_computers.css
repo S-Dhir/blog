@@ -20,3 +20,23 @@ h2 {
     font-size: 2vmax;
     width: 60%;
 }
+.inpcmnt {
+    left: 0;
+    margin-left: 0;
+    border: none;
+    background-color: aqua;
+    width: 99vw;
+    height: 5vh;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 5vmin;
+}
+.inpcmnt:focus {
+    outline: none;
+}
+#username {
+    background-color: aqua;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 4.5vmin;
+    width: 32px;
+    display: inline;
+}

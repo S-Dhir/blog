@@ -12,6 +12,9 @@
 
     <title>All you need to know about Computers | Shiven's blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet"><!--Navbar--><!--|font-family: 'Fredericka the Great', cursive;|-->
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet"><!--footer--><!--|font-family: 'Indie Flower', cursive;|-->
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet"><!--Heading--><!--|font-family: 'Abril Fatface', cursive;|-->
@@ -30,8 +33,7 @@
     </script>
 
 </head>
-<body id="body">
-    <script src=""></script>
+<body id="body" style="margin-left: 0;">
     <div class="nav" style="margin-top: -2%;">
         <ul class="menu">
             <!--Navbar-->
@@ -94,7 +96,7 @@
     </div>
     <br><br><br><br><br><br><br>
     <div class="footer" id="footer">
-        <p class="text">
+            <p class="text">
             <a href="posts/basic_computers/basic_computers.htm" class="text_url" style="text-decoration: underline;">Check out my latest post</a>
             <a href="https://github.com/S-Dhir/blog" class="text_url" style="text-decoration: underline;">See the source code on github</a>
             <a href="/about.html" class="text_url" style="text-decoration: underline;">About me</a>
@@ -104,12 +106,18 @@
     
     </div>
     <h1 style="text-align: center; color: rgb(108, 219, 210);">Comments</h1>
-    <a onclick="alert('commenting is currently under development. As soon as the development is finished you will be able to comment, till then stay tuned!')" style="text-align: center; font-size: 2vmax; background-color: blanchedalmond;" href="#">How do I comment?</a>
+    
     <div id="comments">
-        <div>
-        </div>
-        <hr style="width: 100vw;">
+        <img src="../../loading.gif" alt="none" style="width: 30%;">
     </div>
+
+    <div style="background-color: aqua;">
+        <img src="../../loading.gif" alt="" id="userpic" style="width: 32px;">
+        <p id="username" style="display: inline;">commenting as:</p>
+        <input class="inpcmnt" type="search" id="comment" onsearch="comment(document.getElementById('comment').value)" style="width: 100%;" placeholder="Add a comment"></input>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><b><br><b><br><br><br><br><br><br><br><br><br><br><br><br><br></b></b>
     <script src="../../common.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
@@ -122,6 +130,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-performance.js"></script>
 
     <script>
+        const currentdoc = "basic_computers"
+    var run = true;
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         var firebaseConfig = {
@@ -140,29 +150,25 @@
         var db = firebase.firestore();
         
         
-        function signingoogle() {
-            let provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithRedirect(provider);
-        }
-        function signinyahoo() {
-            let provider = new firebase.auth.OAuthProvider('yahoo.com');
-            firebase.auth().signInWithRedirect(provider);
-        }
-        function signinmicrosoft() {
-            let provider = new firebase.auth.OAuthProvider('microsoft.com');
-            firebase.auth().signInWithRedirect(provider);
-        }
         firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
     var uid = user.uid;
+    document.getElementById("username").innerHTML="commenting as: "+firebase.auth().currentUser.displayName;
+    if (firebase.auth().currentUser.photoURL != null) {
+        document.getElementById("userpic").src=firebase.auth().currentUser.photoURL;
+    } else {
+        document.getElementById("userpic").src='https://firebasestorage.googleapis.com/v0/b/blog-47049.appspot.com/o/pfp%2Fnot-logged-in-32.png?alt=media';
+    }
+    
     // ...
   } else {
     // User is signed out
     // ...
   }
 });
+
         function signinemail(email) {
             var actionCodeSettings = {
                 // URL you want to redirect back to. The domain (www.example.com) for this
@@ -331,21 +337,79 @@
             return month[parseInt(number)];
         }
         var docRef;
-        for (let iok=1; (iok<3);) {
-            db.collection("basic_computers").doc("C" + iok)
-            .get().then((doc) => {
-                if (doc.exists) {
-                    var recieve=doc.data();
-                    document.getElementById("comments").innerHTML=document.getElementById("comments").innerHTML+'<img src="'+recieve["photo"]+'" style="width: 32px; height: 32px;">&nbsp;'+recieve["name"]+"<p>"+recieve["comment"]+'</p><i class="fa fa-thumbs-o-down"></i>'+recieve["likes"]+'&nbsp;&nbsp;&nbsp;<i class="fa fa-thumbs-o-up"></i>'+recieve["dislikes"]+' Uploaded: '+recieve["time"].charAt(0)+recieve["time"].charAt(1)+':'+recieve["time"].charAt(2)+recieve["time"].charAt(3)+' on '+ month(recieve["date"].charAt(2)+recieve["date"].charAt(3))+' '+recieve["time"].charAt(0)+recieve["time"].charAt(1)+' year '+recieve["date"].charAt(4)+recieve["date"].charAt(5)+recieve["date"].charAt(6)+recieve["date"].charAt(7)+'</div><hr style="width: 100vw;"><div>'
-                } else {
-                    // doc.data() will be undefined in this case
-                    kte=false;
-                }
-            }).catch((error) => {
-            }); 
-            iok=iok+1;
+        db.collection(currentdoc).get().then((doc) => {
+            document.getElementById("comments").innerHTML="";
+            const doclength = doc.docs.length;
+            for (let iok=1; (iok<(doclength+1));) {
+                db.collection(currentdoc).doc("C" + iok)
+                .get().then((doc) => {
+                    if (doc.exists) {
+                        console.log(doc.data());
+                        var recieve=doc.data();
+                        
+                        document.getElementById("comments").innerHTML=document.getElementById("comments").innerHTML+'<img src="'+recieve["photo"]+'" style="width: 32px; height: 32px;">&nbsp;'+recieve["name"]+"<p>"+recieve["comment"]+'<br> Uploaded: '+recieve["time"].charAt(0)+recieve["time"].charAt(1)+':'+recieve["time"].charAt(2)+recieve["time"].charAt(3)+' on '+ month(recieve["date"].charAt(2)+recieve["date"].charAt(3))+' '+recieve["time"].charAt(0)+recieve["time"].charAt(1)+' year '+recieve["date"].charAt(4)+recieve["date"].charAt(5)+recieve["date"].charAt(6)+recieve["date"].charAt(7)+'</div><hr style="width: 100vw;"><div>'
+                    } else {
+                        
+                        kte=false;
+                        console.log(kte);
+                    }
+                }).catch((error) => {
+                    console.log(error);
+                }); 
+                iok=iok+1;
         }
-
+        }).catch((error) => {
+            location.reload();
+        })
+        
+        function comment(coment) {
+            /*intentional spelling error so to not get confused with other comments*/
+            var year = new Date().getFullYear().toString();
+            var month = new Date().getMonth();
+            month=month+1;
+            month=month.toString();
+            var date = new Date().getDate().toString();
+            var hour = new Date().getHours();
+            hour = hour+1;
+            hour = hour.toString();
+            var minute = new Date().getMinutes();
+            minute=minute+1;
+            minute=minute.toString();
+            if (month.length=1) {
+                month="0"+month;
+            }
+            var send= {
+                "comment":coment,
+                "date":date + month + year,
+                "name": firebase.auth().currentUser.displayName,
+                "photo":firebase.auth().currentUser.photoURL,
+                "time":hour+minute
+            }
+            console.log(send);
+            var docRef;
+            
+            
+            db.collection(currentdoc).get().then((doc) => {
+                    console.log(doc.docs.length);
+                    db.collection(currentdoc).doc('C'+(doc.docs.length+1).toString()).set({
+                        "comment":coment,
+                        "date":date + month + year,
+                        "name": firebase.auth().currentUser.displayName,
+                        "photo":firebase.auth().currentUser.photoURL,
+                        "time":hour+minute
+                    })
+                    .then(() => {
+                        console.log("document written");
+                        location.reload();
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+                }).catch((error) => {
+                    console.log(error)
+                });
+            }  
+            
     </script>
     <script>
         var loadend=performance.now();
