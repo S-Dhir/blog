@@ -111,7 +111,7 @@
         <img src="../../loading.gif" alt="none" style="width: 30%;">
     </div>
 
-    <div style="background-color: aqua;">
+    <div style="background-color: aqua; display: none;" id="Comment_box">
         <img src="../../loading.gif" alt="" id="userpic" style="width: 32px;">
         <p id="username" style="display: inline;">commenting as:</p>
         <input class="inpcmnt" type="search" id="comment" onsearch="comment(document.getElementById('comment').value)" style="width: 100%;" placeholder="Add a comment"></input>
@@ -155,6 +155,7 @@
         
         firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+      document.getElementById('Comment_box').style.display="initial";
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
     var uid = user.uid;
