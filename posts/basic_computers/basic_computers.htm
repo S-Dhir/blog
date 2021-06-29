@@ -148,7 +148,10 @@
         firebase.analytics();
         var perf = firebase.performance();
         var db = firebase.firestore();
-        
+        function signingoogle() {
+            let provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithRedirect(provider);
+        }
         
         firebase.auth().onAuthStateChanged((user) => {
   if (user) {
