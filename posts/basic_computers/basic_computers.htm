@@ -346,7 +346,7 @@
             return month[parseInt(number)];
         }
         var docRef;
-        db.collection(currentdoc).get().then((doc) => {
+        firebase.firestore().collection(currentdoc).get().then((doc) => {
             document.getElementById("comments").innerHTML="";
             const doclength = doc.docs.length;
             for (let iok=1; (iok<(doclength+1));) {
