@@ -381,13 +381,6 @@
             if (month.length=1) {
                 month="0"+month;
             }
-            var send= {
-                "comment":coment,
-                "date":date + month + year,
-                "name": firebase.auth().currentUser.displayName,
-                "photo":firebase.auth().currentUser.photoURL,
-                "time":hour+minute
-            }
             console.log(send);
             var docRef;
             
