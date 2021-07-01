@@ -38,10 +38,23 @@
                 <!--Navbar-->
             <li class="nav_list"><a hreflang="en-in" href="index.html" class="link_url">Home</a></li>&nbsp;&nbsp;
             <li class="nav_list">|</li>
-            <li class="nav_list"><a hreflang="en-in" href="posts/basic_computers/basic_computers.htm" class="link_url">Basic computers </a></li>
+            <li class="nav_list">
+                <details>
+                    <summary id="computer_nav">
+                        My posts
+                    </summary>
+
+                    <a hreflang="en-in" href="posts/message encoder/.htm" style="border: ridge; border-radius: 30%;" class="link_url">
+                        Secure your data
+                    </a><br>
+                    <a hreflang="en-in" href="posts/basic_computers/basic_computers.htm" style="border: ridge; border-radius: 30%;" class="link_url">
+                        Learn basic computers
+                    </a>
+                </details>
+            </li>
             <li class="nav_list">|</li>
             <li class="nav_list"><a hreflang="en-in" href="#" class="link_url" onclick="showform()">Subscribe </a></li>
-            </ul>
+            </ul></div>
         </div><br><br><br><br><br><br>
         <h1 style="text-align: center;">Understanding computers</h1>
         <br><br><br><br><!--Styling purposes--> 
@@ -96,6 +109,7 @@
             </div>
 
         </div>
+        <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3d91d8d58d1279ac38756519b/cd6fbf606c4f02d98a804934c.js");</script>
         <script src="common.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
         <script>
@@ -121,11 +135,51 @@
             firebase.auth().signInWithRedirect(provider);
         }
         firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
+            if (user) {/**/
+                //getting user country
+
+
+
+                document.getElementById("subscribed").style.display='none';
+                document.getElementById('Comment_box').style.display="";
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 var uid = user.uid;
-                // ...
+                document.getElementById("username").innerHTML="commenting as: "+firebase.auth().currentUser.displayName;
+                if (firebase.auth().currentUser.photoURL != null) {
+                    document.getElementById("userpic").src=firebase.auth().currentUser.photoURL;
+                } else {
+                    document.getElementById("userpic").src='https://firebasestorage.googleapis.com/v0/b/blog-47049.appspot.com/o/pfp%2Fnot-logged-in-32.png?alt=media';
+                }
+                
+                var request = new XMLHttpRequest();
+
+                request.open('GET', 'https://api.ipdata.co/?api-key=ede89dc30d13b64062b68d4003e29491647c3c42c209c0444fe9f519');
+
+                request.setRequestHeader('Accept', 'application/json');
+
+                request.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    var userCountry=this.responseText;
+                    var userCountry=JSON.parse(userCountry);
+                    db.collection("users").doc(firebase.auth().currentUser.email).set({
+                        country: userCountry.country_name,
+                        name: firebase.auth().currentUser.displayName,
+                        uid: firebase.auth().currentUser.uid,
+                        provider: firebase.auth().provider
+                    })
+                    .then(() => {
+                        var qoejnjiwnefihbhnqfhibqihfbqjiwfnqejiinfquinfieqbnfiqefnqinfiqjnfqjijnfqiwjnfqijnfqinfiqjw;
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+                    
+                }
+                };
+                request.send();
+                
+                
             } else {
                 // User is signed out
                 // ...
