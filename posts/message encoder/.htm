@@ -64,6 +64,7 @@
     <h1 style="color: beige; font-size: 5.6vmin;">The most secure encryption. Ever</h1>
     <h3 style="color: rgb(122, 197, 138);">by Shiven Dhir | Updated 1 July 2021 | 5:34 PM GMT +5:30</h3>
     <p class="post">Here is a project that I was working on.</p>
+    
     <h2>What is it?</h2>
     <p class="post">This is my project that adds an unhackable layer of encryption on any message that you send to anyone over the internet.</p>
     <h2>How does it work?</h2>
@@ -81,42 +82,15 @@
     Right-clicking on index.html opens this menu. <br><b><i>Note:- Do not do any changes to the other files except if written here.</b></i>
     Click Chrome or Microsoft edge. Once opened, it will should look like this irrelevant of Chrome or Edge (other browsers may or may not work): <br>
     <img src="images/look.png" alt=""><br>
-    copy paste this in the input field: <br> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
-    <script>
-            var clipboard = new ClipboardJS('.btn');
-            clipboard.on('success', function (e) {
-            console.log(e);
-            });
-            clipboard.on('error', function (e) {
-            console.log(e);
-            });
-    </script>
-    <p id="QWERTY" class="post">qwertyuiopasdfghjklzxcvbnm1234567890</p> <button class="btn" data-clipboard-text="qwertyuiopasdfghjklzxcvbnm1234567890">Copy</button>
-    <script>
-        function functionion() {
-
-            /* Get the text field */
-            var copyText = document.getElementById("QWERTY").innerHTML;
-
-            /* Select the text field */
-            copyText.select;
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-            /* Copy the text inside the text field */
-            document.execCommand("copy");
-
-            /* Alert the copied text */
-            alert("Copied the text: " + copyText.value);
-        }
-    </script>
-    <p class="post">
-    once you have pasted this text on the input box, click on "click here to get random key". When you do you will get this: <br>
+    click on "click here to get random key". When you do you will get this: <br>
     <img src="images/afterlook.png" alt=""><br>
     copy this <b><i>This is the key to decoding your message. If this goes into the wrong hands then, your secret messages will no more be secret</b></i>. Go back to the folder where this file was and open key.js in notepad <br>
     <img src="images/key.js.png" alt="mobile" class="blog_images"><br>
     paste that key you had copied earlier <b><b><i>Note :- Do not change the formatting, it can cause disruption</b></i>
     </p>
+    <p class="post">Ask your friend to download this encrypter. Then give your friend this same key. Your friend will then have to put the key in key.js (like you). </p>
+    <h2>I have it setup, now how do I encrypt messages?</h2>
+    <p class="post">paste whatever message you have (that be a message in english or a message that has encryption) in the input field. If the message is to be sent, click "translate", but if you want to encrypt it click "turn to key". Then you can send this message to your friend.</p>
     <div id="popup" class="popup_container" style="opacity: 0.8; display: none;">
                 
     </div>
