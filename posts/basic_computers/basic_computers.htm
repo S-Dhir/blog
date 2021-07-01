@@ -183,7 +183,12 @@
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
     var uid = user.uid;
-    document.getElementById("username").innerHTML="commenting as: "+firebase.auth().currentUser.displayName;
+      if ( firebase.auth().currentUser.displayName != null) {
+          document.getElementById("username").innerHTML="commenting as: "+firebase.auth().currentUser.displayName;
+          }
+            else {
+                document.getElementById("username").innerHTML="commenting as: "+firebase.auth().currentUser.email;
+            }
     if (firebase.auth().currentUser.photoURL != null) {
         document.getElementById("userpic").src=firebase.auth().currentUser.photoURL;
     } else {
@@ -225,6 +230,7 @@
 });
 
         function signinemail(email) {
+            document.getElementById("error").innerHTML="An email was sent to you with instructions to subscribe";
             var actionCodeSettings = {
                 // URL you want to redirect back to. The domain (www.example.com) for this
                 // URL must be in the authorized domains list in the Firebase Console.
@@ -241,7 +247,7 @@
                 },
                 dynamicLinkDomain: 'dhir.page.link'
             };
-            firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+            firebase.auth().sendSignInLinkToEmail(email.toString(), actionCodeSettings)
                 .then(() => {
                     // The link was successfully sent. Inform the user.
                     // Save the email locally so you don't need to ask the user for it again
@@ -392,7 +398,7 @@
             return month[parseInt(number)];
         }
         var docRef;
-        db.collection(currentdoc).get().then((doc) => {
+        firebase.firestore().collection(currentdoc).get().then((doc) => {
             document.getElementById("comments").innerHTML="";
             const doclength = doc.docs.length;
             for (let iok=1; (iok<(doclength+1));) {
@@ -439,10 +445,16 @@
             
             db.collection(currentdoc).get().then((doc) => {
                     console.log(doc.docs.length);
+                if (firebase.auth().currentUser.displayName != null) {
+                    var dispNAME = firebase.auth().currentUser.displayName;
+                }
+                else {
+                    var dispNAME = firebase.auth().currentUser.email;
+                }
                     db.collection(currentdoc).doc('C'+(doc.docs.length+1).toString()).set({
                         "comment":coment,
                         "date":date + month + year,
-                        "name": firebase.auth().currentUser.displayName,
+                        "name": dispNAME,
                         "photo":firebase.auth().currentUser.photoURL,
                         "time":hour+minute
                     })
