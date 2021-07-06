@@ -55,6 +55,7 @@ function showform() {
   document.getElementById("popup").style.display="initial";
   document.getElementById("popup2").style.display="initial"; 
 }
+
 while (document.getElementById("details").open) {
   document.getElementById("computer_nav").innerHTML='<i class="material-icons">arrow_drop_down_circle</i>'+document.getElementById("computer_nav").innerHTML;
 }

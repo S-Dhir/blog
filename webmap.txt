@@ -1,2 +1,4 @@
 https://s-dhir.github.io/blog/
 https://s-dhir.github.io/blog/posts/basic_computers/basic_computers.htm
+https://s-dhir.github.io/blog/posts/message encoder/p.htm
+https://s-dhir.github.io/blog/posts/PC vs Console/p.htm

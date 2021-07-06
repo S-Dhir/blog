@@ -28,8 +28,6 @@
         <link rel="stylesheet" href="common_page.css" hreflang="en-in">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         
-        <script>
-        </script>
     </head>
     <body>
         
@@ -111,6 +109,15 @@
         </div>
         <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3d91d8d58d1279ac38756519b/cd6fbf606c4f02d98a804934c.js");</script>
         <script src="common.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4J1X0XP8WZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4J1X0XP8WZ');
+</script>
         <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
         <script>
         // Your web app's Firebase configuration
@@ -181,8 +188,9 @@
                 
                 
             } else {
-                // User is signed out
-                // ...
+                if (window.location.hash == "#subscribekya") {
+                    showform();
+                }
             }
         });
         function signinyahoo() {
