@@ -14,6 +14,9 @@ h2 {
     font-family: 'Abril Fatface', cursive;
     color: rgb(143, 172, 106);
 }
+h3 {
+    color: yellowgreen;
+}
 #comments {
     background-color: azure;
     font-family: 'Benne', serif;
