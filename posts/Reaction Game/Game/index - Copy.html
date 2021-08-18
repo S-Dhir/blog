@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reaction game offline</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<script src="before.js"></script>
+
+<body onkeydown="keypressed(event)">
+
+    <div id="settings">
+        <br>
+        
+        
+    </div>
+    <a id="gear"><i class="fa fa-gear settings"></i></a>
+    <p id="countdown">3</p>
+    <p class="pname ready">A R E&nbsp;&nbsp;Y O U&nbsp;&nbsp;R E A D Y?</p><br><br><br><br>
+    <button id="ready">Yes!</button>
+    
+    <p id="notif" class="notif">eegfwgwgw  we  ew 66</p>
+    <audio controls style="display: none;" id="startAudio">
+        <source src="piano.mp3" type="audio/mpeg">
+        <source src="piano.ogg" type="audio/ogg">
+        <source src="piano.wav" type="audio/wav">
+    </audio>
+    <div id="winners" style="display: none; font-size: 11vmin;">
+        <h2 style="text-align: center; color: teal;">Winners</h2>
+        <p class="rank" id="rank1">null</p><hr class="hr">
+        <p class="rank" id="rank2">null</p><hr class="hr">
+        <p class="rank" id="rank3">null</p><hr class="hr">
+        <p class="rank" id="rank4">null</p><hr class="hr">
+        <p class="rank" id="rank5">null</p>
+    </div>
+    
+    <script src="after.js"></script>
+</body>    
+
+
+
+</html>
