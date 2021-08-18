@@ -1,0 +1,60 @@
+.blog_images {
+    width: 30%;
+}
+.post {
+    font-family: 'Prompt', sans-serif;
+    font-size: 2vmax;
+    color: rgb(212, 151, 81);
+}
+body {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(69,120,57,1) 8%, rgba(4,4,11,1) 43%, rgba(8,8,110,1) 55%, rgba(0,0,0,0.7514356084230567) 81%);
+}
+h2 {
+    font-family: 'Abril Fatface', cursive;
+    color: rgb(143, 172, 106);
+}
+h3 {
+    color: yellowgreen;
+}
+#comments {
+    background-color: azure;
+    font-family: 'Benne', serif;
+    font-size: 2vmax;
+    width: 60%;
+}
+.inpcmnt {
+    left: 0;
+    margin-left: 0;
+    border: none;
+    background-color: aqua;
+    width: 99vw;
+    height: 5vh;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 5vmin;
+}
+.inpcmnt:focus {
+    outline: none;
+}
+#username {
+    background-color: aqua;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 4.5vmin;
+    width: 32px;
+    display: inline;
+}
+img {
+    width: 50%;
+}
+.link {
+    color: aqua;
+}
+.link:visited {
+    color: rgb(211, 231, 31);
+}
+.link:hover {
+    color: rgb(0, 255, 136);
+}
+.link:active {
+    color: orange;
+}
